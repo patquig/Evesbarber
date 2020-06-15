@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Mens barber in East Cowes" />
+    <meta
+      name="keywords"
+      content="mens, barber, cowes, east cowes, isle of wight"
+    />
+    <meta name="author" content="Pat Quigley" />
+    <title>Eve's Barber shop</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="main.js"></script>
+  </head>
+  <body>
+      <div id="modal">
+        <div id="msg-overlay"></div>
+        <div class="covid-msg">
+            <div id="close-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                    <path d="M12 2c5.514 0 10 4.486 10 10s-4.486 10-10 10-10-4.486-10-10 4.486-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm6 16.538l-4.592-4.548 4.546-4.587-1.416-1.403-4.545 4.589-4.588-4.543-1.405 1.405 4.593 4.552-4.547 4.592 1.405 1.405 4.555-4.596 4.591 4.55 1.403-1.416z"></path>
+                </svg>
+            </div>
+            <h2>NOTICE TO CUSTOMERS</h2>
+            <h4>I hope this message finds you all safe and well</h4>
+            <div class="contents">
+                <p>This is a quick note to say that I am currently implementing the changes necessary to allow me to safely
+                    re-open my barber shop which must comply with government guidelines. As soon as I am advised on when I
+                    can re-open I will notify you. Check my Google business page for subsequent updates. I might have to
+                    open by appointment only, depending on Government guidelines. If so there will be an online appointment
+                    system or you can phone to make an appointment.
+                </p>
+              <h4 style="text-decoration:underline;">The necessary changes I am making to the barber shop are as follows:</h4>
+                <ul>
+                    <li>ALL HAIR MUST BE WASHED BEFORE VISITING FOR A HAIRCUT to protect the health of customers and staff.
+                    </li>
+                    <li>There will be no cash till ….. CARD PAYMENTS ONLY PLEASE in line with government guidelines.</li>
+                    <li>I am re-designing the shop to allow for SOCIAL DISTANCING ( 2 METRES) while hopefully keeping 2
+                        chairs working at once to minimise waiting times. 1 chair with me and 1 chair with Aidan (he has
+                        completed his course and is ready and keen to assist you all with your mullets and any other
+                        interesting looks that you’ve been rocking!</li>
+                    <li>When the shop is fully open you will be asked to queue outside so let’s hope the weather is kind!!!
+                    </li>
+                </ul>
+                <p>Ok well I’ll get on with sorting the shop and you lot can carry on growing those mullets!!!
+                    Until my next update …….Stay Safe………
+                    Love to you all!!!
+                </p>
+    
+                <span class="eve">Eve</span>
+            </div>
+        </div>
+      </div>
+    <header>
+      <div class="inner">
+        <div class="logo">
+          <a href="/">
+            <div class="ani-wrap logo">
+              <img src="assets/logo.png" alt="Eves Barber Shop" />
+            </div>
+          </a>
+        </div>
+        <nav>
+            <ul>
+                <li>
+                    <a href="/#about">about</a>
+                </li>
+                <li>
+                  <a href="/#prices">prices</a>
+                </li>
+                <li>
+                  <a href="/#contact">contact</a>
+                </li>
+            </ul>
+        </nav>
+      </div>
+    </header>
+    <section id="hero">
+      <div class="inner"></div>
+    </section>
+
+    <section id="about">
+      <div class="inner">
+        <h1>Eve's Barbershop has been open in East Cowes since 2015.</h1>
+
+        <h3>
+          Whether you want a vintage, classic, or modern look, its the barber
+          shop for you!
+        </h3>
+
+        <address>
+          23 Castle Street<br />
+          East Cowes<br />
+          PO32 6RB UK<br />
+          <a href="tel:01983290093">01983 290093</a>
+        </address>
+
+        <div id="map"></div>
+
+        <p class="quote">
+          "I trained in Sandhurst, and worked in West Cowes for 2 years, but
+          thought it was about time you lads and gents had a barbers again. Its
+          funky yet comfortable, fully equipped with free wifi, tv and comfy
+          seating while you wait. You mature gents can have a reduced price on a
+          Tuesday, and for you guys who struggle to find the time...i'm open
+          untill 7pm on a Wednesday* and you can also pre book* so no more
+          waiting. I look forward to meeting you"
+          <span>Eve</span>
+        </p>
+      </div>
+    </section>
+
+    <section id="prices">
+      <div class="inner">
+        <div class="shaver-img"></div>
+        <div class="col prices-img"></div>
+        <div class="col prices">
+          <p>Gents/Ladies <span>£11</span></p>
+          <p>Boys (under 12) <span>£8.50</span></p>
+          <p>Senior Citizen (tuesday only) <span>£8.50</span></p>
+          <p>Beard/Fringe <span>£3.50</span></p>
+          <div class="note">*All haircuts are full price Fri-Sat</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- script -->
+    <script>
+      // Initialize and add the map
+      function initMap() {
+        // The location of Uluru
+        var uluru = { lat: 50.758283, lng: -1.289413 };
+        // The map, centered at Uluru
+        var map = new google.maps.Map(document.getElementById("map"), {
+          zoom: 18,
+          center: uluru,
+        });
+        // The marker, positioned at Uluru
+        var marker = new google.maps.Marker({ position: uluru, map: map });
+      }
+    </script>
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDhYz734WmgrJw3GBZ1TuBD6e1skNZx3gc&callback=initMap"
+      type="text/javascript"
+    ></script>
+    <!-- endscripts -->
+  </body>
+</html>
