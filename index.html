@@ -78,9 +78,16 @@
       </div>
     </div>
     <div id="mobile-menu">
-      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-        <path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm6 17h-12v-2h12v2zm0-4h-12v-2h12v2zm0-4h-12v-2h12v2z" />
-      </svg>        
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm6 17h-12v-2h12v2zm0-4h-12v-2h12v2zm0-4h-12v-2h12v2z"
+        />
+      </svg>
     </div>
     <header>
       <div class="inner">
@@ -155,63 +162,110 @@
         <nav>
           <ul>
             <li>
-              <a href="/#about">about</a>
+              <a class="nav-link" href="/#about">about</a>
             </li>
             <li>
-              <a href="/#prices">prices</a>
+              <a class="nav-link" href="/#prices">prices</a>
             </li>
             <li>
-              <a href="/#contact">contact</a>
+              <a class="nav-link" href="/#contact">contact</a>
             </li>
           </ul>
         </nav>
       </div>
     </header>
-    <section id="hero">
+    <section id="hero" class="black">
       <div class="inner">
         <div class="content">
           <h1>Taking appointments now</h1>
           <a href="mailto:book@evesbarbershop.co.uk">Book now</a>
         </div>
       </div>
-    </section>
-
-    <section id="about">
-      <div class="inner">
-
-        <h1>Eve's Barbershop has been open in East Cowes since 2015.</h1>
-
-        <h3>
-          Whether you want a vintage, classic, or modern look, its the barber
-          shop for you!
-        </h3>
-
-        <address>
-          23 Castle Street<br />
-          East Cowes<br />
-          PO32 6RB UK<br />
-          <a href="tel:01983290093">01983 290093</a>
-        </address>
-
-        <div id="map"></div>
-
-        <p class="quote">
-          "I trained in Sandhurst, and worked in West Cowes for 2 years, but
-          thought it was about time you lads and gents had a barbers again. Its
-          funky yet comfortable, fully equipped with free wifi, tv and comfy
-          seating while you wait. You mature gents can have a reduced price on a
-          Tuesday, and for you guys who struggle to find the time...i'm open
-          untill 7pm on a Wednesday* and you can also pre book* so no more
-          waiting. I look forward to meeting you"
-          <span>Eve</span>
-        </p>
+      <div class="next">
+        <a href="#about">
+          <div class="title">about</div>
+          <div class="arrow">
+            <svg
+              width="24"
+              height="24"
+              xmlns="http://www.w3.org/2000/svg"
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+            >
+              <path
+                d="M23.245 4l-11.245 14.374-11.219-14.374-.781.619 12 15.381 12-15.391-.755-.609z"
+              />
+            </svg>
+          </div>
+        </a>
       </div>
     </section>
 
-    <section id="prices">
+    <section id="about" class="white">
       <div class="inner">
-        <div class="shaver-img"></div>
-        <div class="col prices-img"></div>
+        <div class="scissors-img section-img"></div>
+        <div class="columns">
+          <h2>Eve's Barbershop has been open in East Cowes since 2015.</h2>
+
+          <h3>
+            Whether you want a vintage, classic, or modern look, its the barber
+            shop for you!
+          </h3>
+        </div>
+
+        <div class="container">
+          <address>
+            23 Castle Street<br />
+            East Cowes<br />
+            PO32 6RB<br />
+            UK<br />
+            <a href="tel:01983290093">01983 290093</a>
+          </address>
+
+          <div id="map"></div>
+        </div>
+
+        <div class="quote">
+          <div class="content">
+            I trained in Sandhurst, and worked in West Cowes for 2 years, but
+            thought it was about time you lads and gents had a barbers again.
+            Its funky yet comfortable, fully equipped with free wifi, tv and
+            comfy seating while you wait. You mature gents can have a reduced
+            price on a Tuesday, and for you guys who struggle to find the
+            time...i'm open untill 7pm on a Wednesday* and you can also pre
+            book* so no more waiting. I look forward to meeting you
+          </div>
+          <div class="author">
+            Eve
+          </div>
+        </div>
+      </div>
+      <div class="next">
+        <a href="#prices">
+          <div class="title">prices</div>
+          <div class="arrow">
+            <svg
+              width="24"
+              height="24"
+              xmlns="http://www.w3.org/2000/svg"
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+            >
+              <path
+                d="M23.245 4l-11.245 14.374-11.219-14.374-.781.619 12 15.381 12-15.391-.755-.609z"
+              />
+            </svg>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <section id="prices" class="black">
+      <div class="inner">
+        <div class="shaver-img section-img"></div>
+        <div class="col prices-head">
+          <h1>Prices</h1>
+        </div>
         <div class="col prices">
           <p>Gents/Ladies <span>£11</span></p>
           <p>Boys (under 12) <span>£8.50</span></p>
@@ -220,8 +274,35 @@
           <div class="note">*All haircuts are full price Fri-Sat</div>
         </div>
       </div>
+      <div class="next">
+        <a href="#contact">
+          <div class="title">contact</div>
+          <div class="arrow">
+            <svg
+              width="24"
+              height="24"
+              xmlns="http://www.w3.org/2000/svg"
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+            >
+              <path
+                d="M23.245 4l-11.245 14.374-11.219-14.374-.781.619 12 15.381 12-15.391-.755-.609z"
+              />
+            </svg>
+          </div>
+        </a>
+      </div>
     </section>
 
+    <section id="contact" class="white">
+      <div class="inner">
+        <h1>contact</h1>
+      </div>
+    </section>
+
+    <footer>
+      
+    </footer>
     <!-- script -->
     <script>
       // Initialize and add the map
@@ -241,6 +322,8 @@
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDhYz734WmgrJw3GBZ1TuBD6e1skNZx3gc&callback=initMap"
       type="text/javascript"
     ></script>
+    <script src="ScrollMagic.min.js"></script>
+    <script src="scroll.js"></script>
     <!-- endscripts -->
   </body>
 </html>

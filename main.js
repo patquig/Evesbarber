@@ -1,4 +1,19 @@
 window.addEventListener('load', () => {
+
+    function getWidth() {
+        return Math.max(
+            document.body.scrollWidth,
+            document.documentElement.scrollWidth,
+            document.body.offsetWidth,
+            document.documentElement.offsetWidth,
+            document.documentElement.clientWidth
+        );
+    }
+
+    let pageWidth = getWidth();
+
+    console.log(pageWidth);
+
     let lastScroll = 0;
 
     let modal = document.getElementById('modal');
@@ -7,13 +22,13 @@ window.addEventListener('load', () => {
     let msgOverlay = document.getElementById('msg-overlay');
     let closeBtn = document.getElementById('close-btn');
     let heroHeight = document.getElementById('hero').offsetHeight;
+    let navLinks = document.querySelectorAll('a.nav-link');
     let header = document.getElementsByTagName('header')[0];
     let headerHeight = header.offsetHeight;
     let combinedHeight = heroHeight - headerHeight + 60;
     let menuBtn = document.getElementById('mobile-menu');
     const scrollUp = "scroll-up";
     const scrollDown = "scroll-down";
-
 
     setTimeout(() => {
         modal.classList.add('show');
@@ -24,6 +39,7 @@ window.addEventListener('load', () => {
     overlay.addEventListener('click', () => {
         closeModal();
         closeMenu();
+        closeOverlay();
     });
 
     msgOverlay.addEventListener('click', () => {
@@ -37,12 +53,14 @@ window.addEventListener('load', () => {
     function closeModal() {
         modal.classList.remove('show');
         overflow.style.overflowY = 'visible';
-        overlay.classList.remove('show');
     }
 
     function closeMenu() {
         menuBtn.classList.remove('open');
         header.classList.remove('menu-open');
+    }
+
+    function closeOverlay() {
         overlay.classList.remove('show');
     }
 
@@ -52,13 +70,17 @@ window.addEventListener('load', () => {
         overlay.classList.toggle('show');
     });
 
+    navLinks.forEach(item => {
+        item.addEventListener('click', event => {
+            closeMenu();
+            closeOverlay();
+        })
+    });
+
+    //scroll
     window.addEventListener('scroll', () => {
 
-        if (getWidth() > 768 && window.pageYOffset > combinedHeight) {
-            header.classList.add('scrolled');
-            menuBtn.classList.add('scrolled');
-        }
-        else if (getWidth() <= 768 && window.pageYOffset > heroHeight) {
+        if (pageWidth > 768 && window.pageYOffset > combinedHeight) {
             header.classList.add('scrolled');
             menuBtn.classList.add('scrolled');
         }
@@ -83,15 +105,7 @@ window.addEventListener('load', () => {
         }
         lastScroll = currentScroll;
 
-    });
+    }, false);
 
-    function getWidth() {
-        return Math.max(
-            document.body.scrollWidth,
-            document.documentElement.scrollWidth,
-            document.body.offsetWidth,
-            document.documentElement.offsetWidth,
-            document.documentElement.clientWidth
-        );
-    }
+
 });
