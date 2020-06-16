@@ -3,7 +3,7 @@
 /**
  * Add border box sizing in all browsers (opinionated).
  */
-@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;800&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Lora:400,700|Montserrat:300,600");
 *,
 ::before,
 ::after {
@@ -543,8 +543,12 @@ textarea,
   background-repeat: no-repeat;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
-  font-family: "Open Sans", sans-serif;
+  font-family: "Lora", sans-serif;
   font-size: 18px;
   text-rendering: optimizeLegibility;
 }
@@ -554,8 +558,8 @@ body {
 }
 
 a {
+  font-family: "Montserrat", sans-serif;
   color: #000;
-  text-decoration: none;
 }
 
 h1,
@@ -563,28 +567,55 @@ h2,
 h3,
 h4,
 h5 {
+  font-family: "Montserrat", sans-serif;
   font-weight: 600;
   -webkit-user-select: none;
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
   margin: 0 0 1rem 0;
+  line-height: 1;
+  word-break: keep-all;
 }
 
 h1 {
   font-size: 4rem;
 }
 
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2.5rem;
+  }
+}
+
 h2 {
   font-size: 3rem;
+}
+
+@media (max-width: 768px) {
+  h2 {
+    font-size: 2rem;
+  }
 }
 
 h3 {
   font-size: 2rem;
 }
 
+@media (max-width: 768px) {
+  h3 {
+    font-size: 1.5rem;
+  }
+}
+
 h4 {
   font-size: 1.5rem;
+}
+
+@media (max-width: 768px) {
+  h4 {
+    font-size: 1.3rem;
+  }
 }
 
 h5 {
@@ -594,6 +625,28 @@ h5 {
 #map {
   height: 400px;
   width: 100%;
+}
+
+#overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #000;
+  opacity: 0;
+  -webkit-transition: opacity 0.25s ease-out, visibility 0.1s 0.5s linear;
+  transition: opacity 0.25s ease-out, visibility 0.1s 0.5s linear;
+  cursor: pointer;
+  z-index: 90;
+  visibility: hidden;
+}
+
+#overlay.show {
+  opacity: 0.6;
+  -webkit-transition: opacity 0.5s ease, visibility 0.1s linear;
+  transition: opacity 0.5s ease, visibility 0.1s linear;
+  visibility: visible;
 }
 
 #modal {
@@ -626,9 +679,9 @@ h5 {
   height: 100%;
   background-color: #000;
   opacity: 0;
-  -webkit-transition: all 0.2s ease;
-  transition: all 0.2s ease;
   cursor: pointer;
+  -webkit-transition: 0.25s ease-out;
+  transition: 0.25s ease-out;
   z-index: 1;
 }
 
@@ -673,9 +726,11 @@ h5 {
 }
 
 #modal.show #msg-overlay {
-  opacity: 0.6;
-  -webkit-transition: opacity 0.5s 0.5s ease;
-  transition: opacity 0.5s 0.5s ease;
+  opacity: 0.3;
+  -webkit-transition: 0.25s ease-out;
+  transition: 0.25s ease-out;
+  -webkit-transition-delay: 0.5s;
+          transition-delay: 0.5s;
 }
 
 #modal.show .covid-msg {
@@ -684,6 +739,180 @@ h5 {
   opacity: 1;
   -webkit-transition: all 0.5s 1s ease;
   transition: all 0.5s 1s ease;
+}
+
+#mobile-menu {
+  position: fixed;
+  top: 0.25rem;
+  left: 0.25rem;
+  display: none;
+  -webkit-transition: 0.25s ease-out;
+  transition: 0.25s ease-out;
+  z-index: 99;
+  cursor: pointer;
+}
+
+#mobile-menu svg {
+  -webkit-transition: 0.25s ease-out;
+  transition: 0.25s ease-out;
+  fill: #fff;
+}
+
+#mobile-menu.open svg, #mobile-menu.scrolled svg {
+  fill: #000;
+}
+
+@media (max-width: 768px) {
+  #mobile-menu {
+    display: block;
+  }
+}
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: auto;
+  width: 100%;
+  z-index: 98;
+  color: #fff;
+  -webkit-box-shadow: 0 1rem 1rem rgba(0, 0, 0, 0);
+          box-shadow: 0 1rem 1rem rgba(0, 0, 0, 0);
+}
+
+header .inner {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  padding: 1rem 2rem;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+header .inner > div {
+  display: inline-block;
+}
+
+header .inner .logo svg {
+  -webkit-animation: slideUp 0.5s 1s ease-out both;
+          animation: slideUp 0.5s 1s ease-out both;
+  height: 120px;
+  fill: #fff;
+}
+
+header .inner nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+header .inner nav ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+header .inner nav ul li a {
+  padding: .5rem 1rem;
+  border: 1px solid white;
+  border-radius: 1rem;
+  color: inherit;
+  font-size: 1.2rem;
+  margin: 0 0 0 .5rem;
+  text-decoration: none;
+}
+
+header.menu-open {
+  -webkit-transform: translateX(0);
+          transform: translateX(0);
+}
+
+@media (min-width: 768px) {
+  header.scroll-down {
+    -webkit-transform: translateY(-100%);
+            transform: translateY(-100%);
+    -webkit-transition: 0.25s ease-out;
+    transition: 0.25s ease-out;
+  }
+}
+
+@media (min-width: 768px) {
+  header.scroll-up {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  header {
+    height: 100vh;
+    width: 90vw;
+    background-color: #fff;
+    color: #000;
+    -webkit-transform: translateX(-100%);
+            transform: translateX(-100%);
+    -webkit-transition: 0.25s ease-out;
+    transition: 0.25s ease-out;
+  }
+  header .inner {
+    padding: 3rem 0;
+  }
+  header .inner .logo {
+    margin: 0 0 0 1rem;
+  }
+  header .inner .logo svg {
+    fill: #000;
+  }
+  header .inner .logo svg path {
+    fill: #000;
+  }
+  header .inner nav ul li {
+    width: 100%;
+    padding: 0;
+    margin: 0.5rem 0 0.5rem 0;
+  }
+  header .inner nav ul li a {
+    width: 100%;
+    text-decoration: none;
+  }
+}
+
+header.scrolled {
+  background-color: #ffffff;
+  color: #000;
+  -webkit-transition: 0.25s ease-out;
+  transition: 0.25s ease-out;
+  -webkit-box-shadow: 0 1rem 1rem rgba(0, 0, 0, 0.1);
+          box-shadow: 0 1rem 1rem rgba(0, 0, 0, 0.1);
+}
+
+header.scrolled .inner .logo svg {
+  height: 60px;
+  fill: #000;
+}
+
+@media (max-width: 768px) {
+  header.scrolled .inner .logo svg {
+    height: 120px;
+  }
+}
+
+header.scrolled .inner .logo svg path {
+  fill: #000;
+}
+
+header.scrolled .inner nav ul li a {
+  border: 1px solid #000;
 }
 
 section {
@@ -728,68 +957,6 @@ section .inner .quote span {
   margin: 1rem 0 0 0;
 }
 
-header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: auto;
-  width: 100%;
-  z-index: 99;
-  color: #fff;
-}
-
-header .inner {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  padding: 1rem 2rem;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-}
-
-header .inner > div {
-  display: inline-block;
-}
-
-header .inner .logo img {
-  -webkit-animation: slideUp 0.5s 1s ease-out both;
-          animation: slideUp 0.5s 1s ease-out both;
-  height: 120px;
-}
-
-header .inner nav {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-header .inner nav ul {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-}
-
-header .inner nav ul li a {
-  padding: 1rem 2rem;
-  color: inherit;
-  font-size: 1.2rem;
-}
-
-header.scrolled {
-  background-color: #fff;
-  color: #000;
-}
-
 #hero {
   background-image: url("assets/herobg.jpg");
   background-position: center;
@@ -798,9 +965,45 @@ header.scrolled {
 }
 
 #hero .inner {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   position: relative;
   min-height: 100vh;
   max-width: 100%;
+  padding: 0 1rem;
+  text-align: right;
+  color: #fff;
+}
+
+#hero .inner .content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  max-width: 600px;
+  margin: 0 0 0 auto;
+}
+
+#hero .inner a {
+  font-size: 3rem;
+  color: #fff;
+  margin: 0 0 0 auto;
+}
+
+@media (max-width: 768px) {
+  #hero .inner a {
+    font-size: 2rem;
+  }
 }
 
 #about .inner {
