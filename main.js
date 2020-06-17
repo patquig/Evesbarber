@@ -77,35 +77,5 @@ window.addEventListener('load', () => {
         })
     });
 
-    //scroll
-    window.addEventListener('scroll', () => {
-
-        if (pageWidth > 768 && window.pageYOffset > combinedHeight) {
-            header.classList.add('scrolled');
-            menuBtn.classList.add('scrolled');
-        }
-        else {
-            header.classList.remove('scrolled');
-            menuBtn.classList.remove('scrolled');
-        }
-
-        const currentScroll = window.pageYOffset;
-        if (currentScroll == 0) {
-            header.classList.remove(scrollUp);
-            return;
-        }
-        if (currentScroll > lastScroll && !header.classList.contains(scrollDown)) {
-            // down
-            header.classList.remove(scrollUp);
-            header.classList.add(scrollDown);
-        } else if (currentScroll < lastScroll && header.classList.contains(scrollDown)) {
-            // up
-            header.classList.remove(scrollDown);
-            header.classList.add(scrollUp);
-        }
-        lastScroll = currentScroll;
-
-    }, false);
-
 
 });
