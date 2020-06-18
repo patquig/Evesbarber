@@ -26,9 +26,17 @@ var prices = new ScrollMagic.Scene({
     .addTo(controller);
 
 var contact = new ScrollMagic.Scene({
+    triggerElement: '#times',
+    duration: document.getElementById('times').offsetHeight
+})
+    .setClassToggle('body', 'white')
+    .triggerHook(0)
+    .addTo(controller);
+
+var contact = new ScrollMagic.Scene({
     triggerElement: '#contact',
     duration: document.getElementById('contact').offsetHeight
 })
-    .setClassToggle('body', 'white')
+    .setClassToggle('body', 'black')
     .triggerHook(0)
     .addTo(controller); 

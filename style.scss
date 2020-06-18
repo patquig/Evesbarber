@@ -244,7 +244,7 @@ h5 {
   z-index: 99;
   cursor: pointer;
   svg {
-    width:42px;
+    width: 42px;
     height: 42px;
     transition: $trans;
   }
@@ -349,21 +349,20 @@ header {
       align-items: flex-end;
       padding: 0 1.8rem;
 
-      flex-grow:1;
+      flex-grow: 1;
       address {
-        font-size: .8rem;
+        font-size: 0.8rem;
         font-weight: 400;
         a {
           font-weight: 400;
         }
       }
-
     }
   }
   &.menu-open {
     transform: translateX(0);
     svg {
-      animation: slideUp 0.5s .25s ease-out both;
+      animation: slideUp 0.5s 0.25s ease-out both;
     }
   }
   &.scrolled {
@@ -411,15 +410,65 @@ section {
   align-items: center;
   height: auto;
   width: 100%;
-  padding: 8rem 4rem;
+  padding: 8rem 4rem 0;
   @media (max-width: $mob) {
     padding: 3rem 2rem;
   }
   .inner {
+    @include flex();
     position: relative;
     height: 100%;
     width: 100%;
     max-width: 1200px;
+    .col {
+      width: 100%;
+      max-width: 50%;
+      font-size: 2rem;
+      padding: 1rem;
+      span {
+        font-weight: 600;
+      }
+      @media (max-width: $tab) {
+        max-width: 100%;
+        min-width: 100%;
+      }
+      @media (max-width: $mob) {
+        padding: 0.5rem;
+      }
+      &.col-head {
+        @include flex();
+        justify-content: center;
+        text-align: center;
+        h1 {
+          display: inline-block;
+          font-size: 10rem;
+          transform-origin: 230px 200px;
+          transform: rotate(-90deg);
+          @media (max-width: $tab) {
+            transform: rotate(0deg);
+            transform-origin: 0 0;
+          }
+          @media (max-width: $mob) {
+            font-size: 4rem;
+          }
+        }
+        &:nth-child(odd) {
+          h1 {
+            transform-origin: 100px 100px;
+            transform: rotate(90deg);
+          }
+        }
+      }
+    }
+    .note {
+      max-width: 610px;
+      font-style: italic;
+      font-size: 0.8rem;
+      text-align: right;
+    }
+    .container {
+      width: 100%;
+    }
     .section-img {
       height: 80px;
       width: 100%;
@@ -474,8 +523,7 @@ section {
   .next {
     position: relative;
     width: 100%;
-    margin: 4rem 0 0 0;
-    color: #fff;
+    margin: 6rem 0;
     a {
       @include flex();
       text-align: center;
@@ -486,6 +534,26 @@ section {
       > * {
         width: 100%;
       }
+      svg {
+        fill: inherit;
+      }
+    }
+  }
+  &.white {
+    background-color: #fff;
+    color: #000;
+    .next {
+      color: #000;
+      svg {
+        fill: #000;
+      }
+    }
+  }
+  &.black {
+    background-color: #000;
+    color: #fff;
+    .next {
+      color: #fff;
       svg {
         fill: #fff;
       }
@@ -511,8 +579,8 @@ section {
     color: #fff;
     .hero-logo {
       position: absolute;
-      top:1rem;
-      left:0;
+      top: 1rem;
+      left: 0;
       width: 100%;
       .logo-img {
         @include flex();
@@ -533,7 +601,7 @@ section {
         margin: 0 0 0 auto;
       }
       h1 {
-        font-size:3.5rem;
+        font-size: 3.5rem;
       }
     }
     a {
@@ -548,7 +616,7 @@ section {
   }
   .next {
     position: absolute;
-    bottom: 2rem;
+    bottom: 0;
     left: 0;
     width: 100%;
   }
@@ -601,15 +669,9 @@ section {
           order: 2;
         }
         a {
-          color: #fff;
+          color: inherit;
         }
       }
-    }
-  }
-  .next {
-    color: #000;
-    svg {
-      fill: #000;
     }
   }
 }
@@ -617,56 +679,29 @@ section {
 //prices
 
 #prices {
-  background-color: #000;
-  background-image: url('assets/clipper2.svg');
+  background-image: url("assets/clipper2.svg");
   background-position: center;
   background-size: cover;
-  color: #fff;
   .inner {
     @include flex();
 
     .shaver-img {
       background-image: url("assets/shaver.png");
     }
-    .col {
-      width: 100%;
-      max-width: 50%;
-      font-size: 2rem;
-      padding: 1rem;
-      span {
-        font-weight: 600;
-      }
-      @media (max-width: $tab) {
-        max-width: 100%;
-        min-width: 100%;
-      }
-      @media (max-width: $mob) {
-        padding: 0.5rem;
-      }
-    }
-    .prices-head {
-      @include flex();
-      justify-content: center;
-      text-align: center;
-      h1 {
-        display: inline-block;
-        font-size: 6rem;
-        transform-origin: 100px 100px;
-        transform: rotate(90deg);
-        @media (max-width: $tab) {
-          transform: rotate(0deg);
-          transform-origin: 0 0;
-        }
-        @media (max-width: $mob) {
-          font-size: 4rem;
-        }
-      }
-    }
-    .note {
-      max-width: 610px;
-      font-style: italic;
-      font-size: 0.8rem;
-      text-align: right;
+  }
+}
+
+//times
+
+#times {
+  background-image: url("assets/comb.svg");
+  background-position: center;
+  background-size: cover;
+  .inner {
+    @include flex();
+
+    .comb-img {
+      background-image: url("assets/comb.png");
     }
   }
 }
@@ -681,12 +716,24 @@ section {
       }
     }
   }
+  .next {
+    .title {
+      order: 2;
+    }
+    svg {
+      transform: rotate(180deg);
+    }
+  }
 }
 
 //footer
 
 footer {
+  padding: 6rem 3rem;
   height: 100vh;
+  .inner {
+    padding: 4rem;
+  }
 }
 
 //animation

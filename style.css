@@ -955,7 +955,7 @@ header .inner .address {
 }
 
 header .inner .address address {
-  font-size: .8rem;
+  font-size: 0.8rem;
   font-weight: 400;
 }
 
@@ -969,8 +969,8 @@ header.menu-open {
 }
 
 header.menu-open svg {
-  -webkit-animation: slideUp 0.5s .25s ease-out both;
-          animation: slideUp 0.5s .25s ease-out both;
+  -webkit-animation: slideUp 0.5s 0.25s ease-out both;
+          animation: slideUp 0.5s 0.25s ease-out both;
 }
 
 header.scrolled {
@@ -1021,7 +1021,7 @@ section {
           align-items: center;
   height: auto;
   width: 100%;
-  padding: 8rem 4rem;
+  padding: 8rem 4rem 0;
 }
 
 @media (max-width: 768px) {
@@ -1031,10 +1031,93 @@ section {
 }
 
 section .inner {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
   position: relative;
   height: 100%;
   width: 100%;
   max-width: 1200px;
+}
+
+section .inner .col {
+  width: 100%;
+  max-width: 50%;
+  font-size: 2rem;
+  padding: 1rem;
+}
+
+section .inner .col span {
+  font-weight: 600;
+}
+
+@media (max-width: 1200px) {
+  section .inner .col {
+    max-width: 100%;
+    min-width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  section .inner .col {
+    padding: 0.5rem;
+  }
+}
+
+section .inner .col.col-head {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-align: center;
+}
+
+section .inner .col.col-head h1 {
+  display: inline-block;
+  font-size: 10rem;
+  -webkit-transform-origin: 230px 200px;
+          transform-origin: 230px 200px;
+  -webkit-transform: rotate(-90deg);
+          transform: rotate(-90deg);
+}
+
+@media (max-width: 1200px) {
+  section .inner .col.col-head h1 {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+    -webkit-transform-origin: 0 0;
+            transform-origin: 0 0;
+  }
+}
+
+@media (max-width: 768px) {
+  section .inner .col.col-head h1 {
+    font-size: 4rem;
+  }
+}
+
+section .inner .col.col-head:nth-child(odd) h1 {
+  -webkit-transform-origin: 100px 100px;
+          transform-origin: 100px 100px;
+  -webkit-transform: rotate(90deg);
+          transform: rotate(90deg);
+}
+
+section .inner .note {
+  max-width: 610px;
+  font-style: italic;
+  font-size: 0.8rem;
+  text-align: right;
+}
+
+section .inner .container {
+  width: 100%;
 }
 
 section .inner .section-img {
@@ -1102,8 +1185,7 @@ section .inner .quote .author {
 section .next {
   position: relative;
   width: 100%;
-  margin: 4rem 0 0 0;
-  color: #fff;
+  margin: 6rem 0;
 }
 
 section .next a {
@@ -1126,6 +1208,32 @@ section .next a > * {
 }
 
 section .next a svg {
+  fill: inherit;
+}
+
+section.white {
+  background-color: #fff;
+  color: #000;
+}
+
+section.white .next {
+  color: #000;
+}
+
+section.white .next svg {
+  fill: #000;
+}
+
+section.black {
+  background-color: #000;
+  color: #fff;
+}
+
+section.black .next {
+  color: #fff;
+}
+
+section.black .next svg {
   fill: #fff;
 }
 
@@ -1217,7 +1325,7 @@ section .next a svg {
 
 #hero .next {
   position: absolute;
-  bottom: 2rem;
+  bottom: 0;
   left: 0;
   width: 100%;
 }
@@ -1292,23 +1400,13 @@ section .next a svg {
 }
 
 #about .inner .container address a {
-  color: #fff;
-}
-
-#about .next {
-  color: #000;
-}
-
-#about .next svg {
-  fill: #000;
+  color: inherit;
 }
 
 #prices {
-  background-color: #000;
   background-image: url("assets/clipper2.svg");
   background-position: center;
   background-size: cover;
-  color: #fff;
 }
 
 #prices .inner {
@@ -1323,71 +1421,22 @@ section .next a svg {
   background-image: url("assets/shaver.png");
 }
 
-#prices .inner .col {
-  width: 100%;
-  max-width: 50%;
-  font-size: 2rem;
-  padding: 1rem;
+#times {
+  background-image: url("assets/comb.svg");
+  background-position: center;
+  background-size: cover;
 }
 
-#prices .inner .col span {
-  font-weight: 600;
-}
-
-@media (max-width: 1200px) {
-  #prices .inner .col {
-    max-width: 100%;
-    min-width: 100%;
-  }
-}
-
-@media (max-width: 768px) {
-  #prices .inner .col {
-    padding: 0.5rem;
-  }
-}
-
-#prices .inner .prices-head {
+#times .inner {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  text-align: center;
 }
 
-#prices .inner .prices-head h1 {
-  display: inline-block;
-  font-size: 6rem;
-  -webkit-transform-origin: 100px 100px;
-          transform-origin: 100px 100px;
-  -webkit-transform: rotate(90deg);
-          transform: rotate(90deg);
-}
-
-@media (max-width: 1200px) {
-  #prices .inner .prices-head h1 {
-    -webkit-transform: rotate(0deg);
-            transform: rotate(0deg);
-    -webkit-transform-origin: 0 0;
-            transform-origin: 0 0;
-  }
-}
-
-@media (max-width: 768px) {
-  #prices .inner .prices-head h1 {
-    font-size: 4rem;
-  }
-}
-
-#prices .inner .note {
-  max-width: 610px;
-  font-style: italic;
-  font-size: 0.8rem;
-  text-align: right;
+#times .inner .comb-img {
+  background-image: url("assets/comb.png");
 }
 
 #contact .inner h1 {
@@ -1401,8 +1450,24 @@ section .next a svg {
   }
 }
 
+#contact .next .title {
+  -webkit-box-ordinal-group: 3;
+      -ms-flex-order: 2;
+          order: 2;
+}
+
+#contact .next svg {
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+}
+
 footer {
+  padding: 6rem 3rem;
   height: 100vh;
+}
+
+footer .inner {
+  padding: 4rem;
 }
 
 @-webkit-keyframes kenBurns {

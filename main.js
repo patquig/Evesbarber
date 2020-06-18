@@ -14,21 +14,16 @@ window.addEventListener('load', () => {
 
     console.log(pageWidth);
 
-    let lastScroll = 0;
 
     let modal = document.getElementById('modal');
     let overflow = document.getElementsByTagName('html')[0];
     let overlay = document.getElementById('overlay');
     let msgOverlay = document.getElementById('msg-overlay');
     let closeBtn = document.getElementById('close-btn');
-    let heroHeight = document.getElementById('hero').offsetHeight;
     let navLinks = document.querySelectorAll('a.nav-link');
     let header = document.getElementsByTagName('header')[0];
-    let headerHeight = header.offsetHeight;
-    let combinedHeight = heroHeight - headerHeight + 60;
     let menuBtn = document.getElementById('mobile-menu');
-    const scrollUp = "scroll-up";
-    const scrollDown = "scroll-down";
+
 
     setTimeout(() => {
         modal.classList.add('show');
