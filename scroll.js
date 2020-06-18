@@ -9,6 +9,14 @@ var hero = new ScrollMagic.Scene({
     .triggerHook(0.1)
     .addTo(controller);
 
+var book = new ScrollMagic.Scene({
+    triggerElement: '#book',
+    duration: document.getElementById('book').offsetHeight
+})
+    .setClassToggle('body', 'black')
+    .triggerHook(0.1)
+    .addTo(controller);
+
 var about = new ScrollMagic.Scene({
     triggerElement: '#about',
     duration: document.getElementById('about').offsetHeight

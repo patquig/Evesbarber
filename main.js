@@ -23,7 +23,10 @@ window.addEventListener('load', () => {
     let navLinks = document.querySelectorAll('a.nav-link');
     let header = document.getElementsByTagName('header')[0];
     let menuBtn = document.getElementById('mobile-menu');
+    let yearEl = document.getElementById('year');
+    let year = new Date; 
 
+    yearEl.innerText = year.getFullYear();
 
     setTimeout(() => {
         modal.classList.add('show');

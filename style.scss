@@ -141,6 +141,8 @@ h5 {
   width: 100%;
 }
 
+//button
+
 //overlay
 #overlay {
   position: fixed;
@@ -301,6 +303,11 @@ header {
     > div {
       display: inline-block;
     }
+    .book-now {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+    }
     .logo {
       margin: 0 0 0 1rem;
       svg {
@@ -453,11 +460,22 @@ section {
           }
         }
         &:nth-child(odd) {
+          order: 1;
           h1 {
             transform-origin: 100px 100px;
             transform: rotate(90deg);
+            @media (max-width: $tab) {
+              transform: rotate(0deg);
+              transform-origin: 0 0;
+            }
+            @media (max-width: $mob) {
+              font-size: 4rem;
+            }
           }
         }
+      }
+      &:not(.col-head) {
+          order: 2;
       }
     }
     .note {
@@ -622,6 +640,34 @@ section {
   }
 }
 
+//book
+
+#book {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath fill='%230a0a0a' d='M22 3.2c0-.663-.537-1.2-1.2-1.2h-17.6c-.663 0-1.2.537-1.2 1.2v11.8h20v-11.8zm-2 9.8h-16v-9h16v9zm2 3h-20c-.197.372-2 4.582-2 4.998 0 .522.418 1.002 1.002 1.002h21.996c.584 0 1.002-.48 1.002-1.002 0-.416-1.803-4.626-2-4.998zm-12.229 5l.467-1h3.523l.467 1h-4.457z' /%3E%3C/svg%3E%0A");
+  background-size: contain;
+  background-position: center;
+  .inner {
+    align-items: center;
+    .book-col {
+      .book {
+        @include flex();
+        justify-content: center;
+        align-items: center;
+        a {
+          color: #fff;
+        }
+      }
+    }
+    .text-col {
+      @include flex();
+      justify-content: center;
+      align-items: center;
+      max-width: 600px;
+      margin: auto;
+    }
+  }
+}
+
 //about
 
 #about {
@@ -694,7 +740,7 @@ section {
 //times
 
 #times {
-  background-image: url("assets/comb.svg");
+  background-image: url("assets/comb2.svg");
   background-position: center;
   background-size: cover;
   .inner {
@@ -715,6 +761,9 @@ section {
         font-size: 4rem;
       }
     }
+    a {
+      color:#fff;
+    }
   }
   .next {
     .title {
@@ -729,8 +778,7 @@ section {
 //footer
 
 footer {
-  padding: 6rem 3rem;
-  height: 100vh;
+  padding: 3rem;
   .inner {
     padding: 4rem;
   }
