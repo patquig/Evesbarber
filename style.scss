@@ -503,6 +503,7 @@ section {
       text-align: center;
       @media (max-width: $mob) {
         font-size: 1rem;
+        margin: 3rem auto 0 auto;
       }
       .content {
         position: relative;
@@ -542,6 +543,9 @@ section {
     position: relative;
     width: 100%;
     margin: 6rem 0;
+    @media (max-width:$tab) {
+      margin:3rem 0;
+    }
     a {
       @include flex();
       text-align: center;
@@ -649,6 +653,7 @@ section {
   .inner {
     align-items: center;
     .book-col {
+      margin:auto;
       .book {
         @include flex();
         justify-content: center;

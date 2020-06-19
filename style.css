@@ -1173,6 +1173,7 @@ section .inner .quote {
 @media (max-width: 768px) {
   section .inner .quote {
     font-size: 1rem;
+    margin: 3rem auto 0 auto;
   }
 }
 
@@ -1219,6 +1220,12 @@ section .next {
   position: relative;
   width: 100%;
   margin: 6rem 0;
+}
+
+@media (max-width: 1200px) {
+  section .next {
+    margin: 3rem 0;
+  }
 }
 
 section .next a {
@@ -1373,6 +1380,10 @@ section.black .next svg {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+
+#book .inner .book-col {
+  margin: auto;
 }
 
 #book .inner .book-col .book {
