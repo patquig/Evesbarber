@@ -24,6 +24,7 @@ window.addEventListener('load', () => {
     let header = document.getElementsByTagName('header')[0];
     let menuBtn = document.getElementById('mobile-menu');
     let yearEl = document.getElementById('year');
+    let hero = document.getElementById('hero');
     let year = new Date; 
 
     yearEl.innerText = year.getFullYear();
@@ -32,7 +33,7 @@ window.addEventListener('load', () => {
         modal.classList.add('show');
         msgOverlay.classList.add('show');
         overflow.style.overflowY = 'hidden';
-    }, 1500);
+    }, 80000);
 
     overlay.addEventListener('click', () => {
         closeModal();
@@ -74,6 +75,10 @@ window.addEventListener('load', () => {
             closeOverlay();
         })
     });
+
+    setTimeout(() => {
+        hero.classList.add('show-bg');
+    }, 3000);
 
 
 });

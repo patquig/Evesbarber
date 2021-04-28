@@ -188,8 +188,9 @@ h5 {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: #000;
+    background-color: rgba(0,0,0,0.6);
     opacity: 0;
+    backdrop-filter: blur(16px);
     cursor: pointer;
     transition: $trans;
     z-index: 1;
@@ -224,7 +225,7 @@ h5 {
   &.show {
     visibility: visible;
     #msg-overlay {
-      opacity: 0.3;
+      opacity: 1;
       transition: $trans;
       transition-delay: 0.5s;
     }
@@ -417,11 +418,12 @@ section {
   align-items: center;
   height: auto;
   width: 100%;
+  overflow-x: hidden;
   padding: 8rem 4rem 0;
   @media (max-width: $mob) {
-    padding: 3rem 2rem;
+    padding: 3rem 0.5rem;
   }
-  .inner {
+  >.inner {
     @include flex();
     position: relative;
     height: 100%;
@@ -440,6 +442,7 @@ section {
         min-width: 100%;
       }
       @media (max-width: $mob) {
+        font-size:1rem;
         padding: 0.5rem;
       }
       &.col-head {
@@ -504,8 +507,9 @@ section {
       @media (max-width: $mob) {
         font-size: 1rem;
         margin: 3rem auto 0 auto;
+        width:90%;
       }
-      .content {
+      >.content {
         position: relative;
         &:before,
         &:after {
@@ -585,20 +589,47 @@ section {
 
 //hero
 #hero {
-  background-image: url("assets/herobg.jpg");
-  background-position: center;
-  background-size: cover;
-  background-attachment: fixed;
+  position: relative;
+  background-color:#000;
   padding: 0rem;
+
+  &:after {
+    content:'';
+    position: absolute;
+    top:0;
+    left:0;
+    height:100%;
+    width:100%;
+    opacity:0;
+    background-image: url("assets/hero-bg.jpeg");
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    filter:blur(5px);
+    z-index:0;
+    @media (max-width: $tab) {
+      background-attachment: initial;
+    }
+  }
+  &.show-bg {
+    &:after {
+      opacity:0.6;
+      transition: opacity .5s ease;
+    }
+  }
   .inner {
     @include flex();
     align-items: center;
     position: relative;
-    min-height: 100vh;
+    min-height: 80vh;
     max-width: 100%;
     padding: 0 1rem;
-    text-align: right;
+    text-align: left;
     color: #fff;
+    z-index:1;
+    @media (max-width:$tab) {
+      min-height:60vh;
+    }
     .hero-logo {
       position: absolute;
       top: 1rem;
@@ -608,7 +639,7 @@ section {
         @include flex();
         justify-content: center;
         svg {
-          animation: slideUp 0.5s 1.5s ease-out both;
+          animation: fadeUp 0.5s 1.5s ease-out both;
           height: 120px;
           fill: #fff;
         }
@@ -617,30 +648,40 @@ section {
     .content {
       @include flex();
       align-items: center;
-      max-width: 600px;
-      margin: 0 2rem 0 auto;
+      width:100%;
+      max-width: $tab;
+      margin: 0 auto;
+      animation: fadeUp 0.5s 1.75s ease-out both;
       @media (max-width: $mob) {
-        margin: 0 0 0 auto;
+        margin: 0;
       }
       h1 {
+        width:100%;
+        max-width: 600px;
         font-size: 3.5rem;
+        @media (max-width: $mob) {
+          font-size:1.5rem;
+        }
       }
-    }
-    a {
-      font-size: 2rem;
-      color: #fff;
-      margin: 0 0 0 auto;
-      font-weight: 400;
-      @media (max-width: $mob) {
+      a {
+        width:100%;
         font-size: 2rem;
+        color: #fff;
+        font-weight: 400;
+        @media (max-width: $mob) {
+          font-size: 1rem;
+          margin: 0;
+        }
       }
     }
+
   }
   .next {
     position: absolute;
     bottom: 0;
     left: 0;
     width: 100%;
+    animation: fadeUp 0.5s 1s ease-out both;
   }
 }
 
@@ -650,6 +691,7 @@ section {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath fill='%230a0a0a' d='M22 3.2c0-.663-.537-1.2-1.2-1.2h-17.6c-.663 0-1.2.537-1.2 1.2v11.8h20v-11.8zm-2 9.8h-16v-9h16v9zm2 3h-20c-.197.372-2 4.582-2 4.998 0 .522.418 1.002 1.002 1.002h21.996c.584 0 1.002-.48 1.002-1.002 0-.416-1.803-4.626-2-4.998zm-12.229 5l.467-1h3.523l.467 1h-4.457z' /%3E%3C/svg%3E%0A");
   background-size: contain;
   background-position: center;
+  animation: fadeIn 0.5s 2s ease-out both;
   .inner {
     align-items: center;
     .book-col {
@@ -786,6 +828,12 @@ footer {
   padding: 3rem;
   .inner {
     padding: 4rem;
+  }
+  @media (max-width:768px) {
+    padding:1rem;
+    .inner {
+      padding:0;
+    }
   }
 }
 

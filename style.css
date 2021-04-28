@@ -734,8 +734,10 @@ h5 {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: #000;
+  background-color: rgba(0, 0, 0, 0.6);
   opacity: 0;
+  -webkit-backdrop-filter: blur(16px);
+          backdrop-filter: blur(16px);
   cursor: pointer;
   -webkit-transition: 0.25s ease-out;
   transition: 0.25s ease-out;
@@ -787,7 +789,7 @@ h5 {
 }
 
 #modal.show #msg-overlay {
-  opacity: 0.3;
+  opacity: 1;
   -webkit-transition: 0.25s ease-out;
   transition: 0.25s ease-out;
   -webkit-transition-delay: 0.5s;
@@ -1027,16 +1029,17 @@ section {
           align-items: center;
   height: auto;
   width: 100%;
+  overflow-x: hidden;
   padding: 8rem 4rem 0;
 }
 
 @media (max-width: 768px) {
   section {
-    padding: 3rem 2rem;
+    padding: 3rem 0.5rem;
   }
 }
 
-section .inner {
+section > .inner {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1048,31 +1051,32 @@ section .inner {
   max-width: 1200px;
 }
 
-section .inner .col {
+section > .inner .col {
   width: 100%;
   max-width: 50%;
   font-size: 2rem;
   padding: 1rem;
 }
 
-section .inner .col span {
+section > .inner .col span {
   font-weight: 600;
 }
 
 @media (max-width: 1200px) {
-  section .inner .col {
+  section > .inner .col {
     max-width: 100%;
     min-width: 100%;
   }
 }
 
 @media (max-width: 768px) {
-  section .inner .col {
+  section > .inner .col {
+    font-size: 1rem;
     padding: 0.5rem;
   }
 }
 
-section .inner .col.col-head {
+section > .inner .col.col-head {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1084,7 +1088,7 @@ section .inner .col.col-head {
   text-align: center;
 }
 
-section .inner .col.col-head h1 {
+section > .inner .col.col-head h1 {
   display: inline-block;
   font-size: 10rem;
   -webkit-transform-origin: 230px 200px;
@@ -1094,7 +1098,7 @@ section .inner .col.col-head h1 {
 }
 
 @media (max-width: 1200px) {
-  section .inner .col.col-head h1 {
+  section > .inner .col.col-head h1 {
     -webkit-transform: rotate(0deg);
             transform: rotate(0deg);
     -webkit-transform-origin: 0 0;
@@ -1103,18 +1107,18 @@ section .inner .col.col-head h1 {
 }
 
 @media (max-width: 768px) {
-  section .inner .col.col-head h1 {
+  section > .inner .col.col-head h1 {
     font-size: 4rem;
   }
 }
 
-section .inner .col.col-head:nth-child(odd) {
+section > .inner .col.col-head:nth-child(odd) {
   -webkit-box-ordinal-group: 2;
       -ms-flex-order: 1;
           order: 1;
 }
 
-section .inner .col.col-head:nth-child(odd) h1 {
+section > .inner .col.col-head:nth-child(odd) h1 {
   -webkit-transform-origin: 100px 100px;
           transform-origin: 100px 100px;
   -webkit-transform: rotate(90deg);
@@ -1122,7 +1126,7 @@ section .inner .col.col-head:nth-child(odd) h1 {
 }
 
 @media (max-width: 1200px) {
-  section .inner .col.col-head:nth-child(odd) h1 {
+  section > .inner .col.col-head:nth-child(odd) h1 {
     -webkit-transform: rotate(0deg);
             transform: rotate(0deg);
     -webkit-transform-origin: 0 0;
@@ -1131,29 +1135,29 @@ section .inner .col.col-head:nth-child(odd) h1 {
 }
 
 @media (max-width: 768px) {
-  section .inner .col.col-head:nth-child(odd) h1 {
+  section > .inner .col.col-head:nth-child(odd) h1 {
     font-size: 4rem;
   }
 }
 
-section .inner .col:not(.col-head) {
+section > .inner .col:not(.col-head) {
   -webkit-box-ordinal-group: 3;
       -ms-flex-order: 2;
           order: 2;
 }
 
-section .inner .note {
+section > .inner .note {
   max-width: 610px;
   font-style: italic;
   font-size: 0.8rem;
   text-align: right;
 }
 
-section .inner .container {
+section > .inner .container {
   width: 100%;
 }
 
-section .inner .section-img {
+section > .inner .section-img {
   height: 80px;
   width: 100%;
   background-position: center;
@@ -1161,7 +1165,7 @@ section .inner .section-img {
   margin: 0 0 40px 0;
 }
 
-section .inner .quote {
+section > .inner .quote {
   position: relative;
   font-size: 1.5rem;
   font-style: italic;
@@ -1171,17 +1175,18 @@ section .inner .quote {
 }
 
 @media (max-width: 768px) {
-  section .inner .quote {
+  section > .inner .quote {
     font-size: 1rem;
     margin: 3rem auto 0 auto;
+    width: 90%;
   }
 }
 
-section .inner .quote .content {
+section > .inner .quote > .content {
   position: relative;
 }
 
-section .inner .quote .content:before, section .inner .quote .content:after {
+section > .inner .quote > .content:before, section > .inner .quote > .content:after {
   content: "";
   position: absolute;
   width: 32px;
@@ -1191,25 +1196,25 @@ section .inner .quote .content:before, section .inner .quote .content:after {
 }
 
 @media (max-width: 768px) {
-  section .inner .quote .content:before, section .inner .quote .content:after {
+  section > .inner .quote > .content:before, section > .inner .quote > .content:after {
     width: 16px;
     height: 16px;
   }
 }
 
-section .inner .quote .content:before {
+section > .inner .quote > .content:before {
   top: 0;
   left: -16px;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath d='M11 9.275c0 5.141-3.892 10.519-10 11.725l-.984-2.126c2.215-.835 4.163-3.742 4.38-5.746-2.491-.392-4.396-2.547-4.396-5.149 0-3.182 2.584-4.979 5.199-4.979 3.015 0 5.801 2.305 5.801 6.275zm13 0c0 5.141-3.892 10.519-10 11.725l-.984-2.126c2.215-.835 4.163-3.742 4.38-5.746-2.491-.392-4.396-2.547-4.396-5.149 0-3.182 2.584-4.979 5.199-4.979 3.015 0 5.801 2.305 5.801 6.275z' /%3E%3C/svg%3E");
 }
 
-section .inner .quote .content:after {
+section > .inner .quote > .content:after {
   bottom: 0;
   right: -16px;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath d='M13 14.725c0-5.141 3.892-10.519 10-11.725l.984 2.126c-2.215.835-4.163 3.742-4.38 5.746 2.491.392 4.396 2.547 4.396 5.149 0 3.182-2.584 4.979-5.199 4.979-3.015 0-5.801-2.305-5.801-6.275zm-13 0c0-5.141 3.892-10.519 10-11.725l.984 2.126c-2.215.835-4.163 3.742-4.38 5.746 2.491.392 4.396 2.547 4.396 5.149 0 3.182-2.584 4.979-5.199 4.979-3.015 0-5.801-2.305-5.801-6.275z' /%3E%3C/svg%3E%0A");
 }
 
-section .inner .quote .author {
+section > .inner .quote .author {
   font-style: normal;
   font-weight: 600;
   display: block;
@@ -1278,11 +1283,38 @@ section.black .next svg {
 }
 
 #hero {
-  background-image: url("assets/herobg.jpg");
+  position: relative;
+  background-color: #000;
+  padding: 0rem;
+}
+
+#hero:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  background-image: url("assets/hero-bg.jpeg");
   background-position: center;
   background-size: cover;
   background-attachment: fixed;
-  padding: 0rem;
+  -webkit-filter: blur(5px);
+          filter: blur(5px);
+  z-index: 0;
+}
+
+@media (max-width: 1200px) {
+  #hero:after {
+    background-attachment: initial;
+  }
+}
+
+#hero.show-bg:after {
+  opacity: 0.6;
+  -webkit-transition: opacity .5s ease;
+  transition: opacity .5s ease;
 }
 
 #hero .inner {
@@ -1295,11 +1327,18 @@ section.black .next svg {
       -ms-flex-align: center;
           align-items: center;
   position: relative;
-  min-height: 100vh;
+  min-height: 80vh;
   max-width: 100%;
   padding: 0 1rem;
-  text-align: right;
+  text-align: left;
   color: #fff;
+  z-index: 1;
+}
+
+@media (max-width: 1200px) {
+  #hero .inner {
+    min-height: 60vh;
+  }
 }
 
 #hero .inner .hero-logo {
@@ -1321,8 +1360,8 @@ section.black .next svg {
 }
 
 #hero .inner .hero-logo .logo-img svg {
-  -webkit-animation: slideUp 0.5s 1.5s ease-out both;
-          animation: slideUp 0.5s 1.5s ease-out both;
+  -webkit-animation: fadeUp 0.5s 1.5s ease-out both;
+          animation: fadeUp 0.5s 1.5s ease-out both;
   height: 120px;
   fill: #fff;
 }
@@ -1336,30 +1375,42 @@ section.black .next svg {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  max-width: 600px;
-  margin: 0 2rem 0 auto;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  -webkit-animation: fadeUp 0.5s 1.75s ease-out both;
+          animation: fadeUp 0.5s 1.75s ease-out both;
 }
 
 @media (max-width: 768px) {
   #hero .inner .content {
-    margin: 0 0 0 auto;
+    margin: 0;
   }
 }
 
 #hero .inner .content h1 {
+  width: 100%;
+  max-width: 600px;
   font-size: 3.5rem;
 }
 
-#hero .inner a {
+@media (max-width: 768px) {
+  #hero .inner .content h1 {
+    font-size: 1.5rem;
+  }
+}
+
+#hero .inner .content a {
+  width: 100%;
   font-size: 2rem;
   color: #fff;
-  margin: 0 0 0 auto;
   font-weight: 400;
 }
 
 @media (max-width: 768px) {
-  #hero .inner a {
-    font-size: 2rem;
+  #hero .inner .content a {
+    font-size: 1rem;
+    margin: 0;
   }
 }
 
@@ -1368,12 +1419,16 @@ section.black .next svg {
   bottom: 0;
   left: 0;
   width: 100%;
+  -webkit-animation: fadeUp 0.5s 1s ease-out both;
+          animation: fadeUp 0.5s 1s ease-out both;
 }
 
 #book {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath fill='%230a0a0a' d='M22 3.2c0-.663-.537-1.2-1.2-1.2h-17.6c-.663 0-1.2.537-1.2 1.2v11.8h20v-11.8zm-2 9.8h-16v-9h16v9zm2 3h-20c-.197.372-2 4.582-2 4.998 0 .522.418 1.002 1.002 1.002h21.996c.584 0 1.002-.48 1.002-1.002 0-.416-1.803-4.626-2-4.998zm-12.229 5l.467-1h3.523l.467 1h-4.457z' /%3E%3C/svg%3E%0A");
   background-size: contain;
   background-position: center;
+  -webkit-animation: fadeIn 0.5s 2s ease-out both;
+          animation: fadeIn 0.5s 2s ease-out both;
 }
 
 #book .inner {
@@ -1561,6 +1616,15 @@ footer {
 
 footer .inner {
   padding: 4rem;
+}
+
+@media (max-width: 768px) {
+  footer {
+    padding: 1rem;
+  }
+  footer .inner {
+    padding: 0;
+  }
 }
 
 @-webkit-keyframes kenBurns {
