@@ -629,12 +629,12 @@ h5 {
 }
 
 h1 {
-  font-size: 6rem;
+  font-size: 4rem;
 }
 
 @media (max-width: 768px) {
   h1 {
-    font-size: 2.5rem;
+    font-size: 2rem;
   }
 }
 
@@ -1317,7 +1317,7 @@ section.black .next svg {
   transition: opacity .5s ease;
 }
 
-#hero .inner {
+#hero > .inner {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1336,19 +1336,19 @@ section.black .next svg {
 }
 
 @media (max-width: 1200px) {
-  #hero .inner {
+  #hero > .inner {
     min-height: 60vh;
   }
 }
 
-#hero .inner .hero-logo {
+#hero > .inner .hero-logo {
   position: absolute;
   top: 1rem;
   left: 0;
   width: 100%;
 }
 
-#hero .inner .hero-logo .logo-img {
+#hero > .inner .hero-logo .logo-img {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1359,14 +1359,14 @@ section.black .next svg {
           justify-content: center;
 }
 
-#hero .inner .hero-logo .logo-img svg {
+#hero > .inner .hero-logo .logo-img svg {
   -webkit-animation: fadeUp 0.5s 1.5s ease-out both;
           animation: fadeUp 0.5s 1.5s ease-out both;
   height: 120px;
   fill: #fff;
 }
 
-#hero .inner .content {
+#hero > .inner .content {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1383,24 +1383,24 @@ section.black .next svg {
 }
 
 @media (max-width: 768px) {
-  #hero .inner .content {
+  #hero > .inner .content {
     margin: 0;
   }
 }
 
-#hero .inner .content h1 {
+#hero > .inner .content h1 {
   width: 100%;
   max-width: 600px;
-  font-size: 3.5rem;
+  font-size: 3rem;
 }
 
 @media (max-width: 768px) {
-  #hero .inner .content h1 {
-    font-size: 1.5rem;
+  #hero > .inner .content h1 {
+    font-size: 1.75rem;
   }
 }
 
-#hero .inner .content a {
+#hero > .inner .content a {
   width: 100%;
   font-size: 2rem;
   color: #fff;
@@ -1408,10 +1408,49 @@ section.black .next svg {
 }
 
 @media (max-width: 768px) {
-  #hero .inner .content a {
+  #hero > .inner .content a {
     font-size: 1rem;
     margin: 0;
   }
+}
+
+#hero > .inner .badge {
+  position: absolute;
+  top: -25px;
+  right: -25px;
+}
+
+@media (max-width: 768px) {
+  #hero > .inner .badge {
+    top: unset;
+    bottom: -25px;
+    right: -25px;
+  }
+}
+
+#hero > .inner .badge > .inner {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-align: center;
+  padding: 1.2rem;
+  height: 180px;
+  width: 180px;
+  border-radius: 50%;
+  -webkit-transform: rotate(15deg);
+          transform: rotate(15deg);
+  background-color: #fff;
+  color: #000;
+  -webkit-box-shadow: 0px 2.5px 10px rgba(0, 0, 0, 0.3);
+          box-shadow: 0px 2.5px 10px rgba(0, 0, 0, 0.3);
+  -webkit-animation: fadeIn 0.25s 2.5s ease-out both;
+          animation: fadeIn 0.25s 2.5s ease-out both;
 }
 
 #hero .next {
